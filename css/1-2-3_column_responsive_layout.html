@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
+  <title>1-2-3 column responsive layout</title>
+</head>
+
+<body>
+  <div class="header">header</div>
+  <div class="cards clear-fix">
+    <div class="card">
+      <a href="#">
+        <div class="title">title</div>
+        <div class="desc">1</div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="#">
+        <div class="title">title</div>
+        <div class="desc">2</div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="#">
+        <div class="title">title</div>
+        <div class="desc">3</div>
+      </a>
+    </div>
+  </div>
+  <div class="footer">footer</div>
+</body>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei", "WenQuanYi Micro Hei", Arial, Verdana, sans-serif;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  a:hover,
+  a:visited,
+  a:link,
+  a:active {
+    text-decoration: none;
+    color: black;
+  }
+
+  .header {
+    height: 50px;
+    line-height: 50px;
+    position: sticky;
+    top: 0;
+    background-color: #f7f7f7;
+    text-align: center;
+  }
+
+  .cards {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .card {
+    width: 33.33%;
+    background-color: #f7f7f7;
+    border: 10px solid white;
+    height: 400px;
+    float: left;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 900px) {
+    .card {
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .card {
+      width: 100%;
+      min-width: 300px;
+    }
+  }
+
+  .clear-fix {
+    zoom: 1;
+  }
+
+  .clear-fix:before,
+  .clear-fix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+
+  .card .title {}
+
+  .card .desc {
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .card:hover .desc {
+    opacity: 1;
+    background-color: #f7f7f7;
+    animation-duration: 1s;
+    animation-name: fadeInUp;
+  }
+
+  .footer {
+    margin-top: auto;
+    background-color: #f7f7f7;
+    padding: 10px 0;
+    text-align: center;
+  }
+</style>
+
+</html>
