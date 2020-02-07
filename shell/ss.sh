@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Debian/Ubuntu
-apt-get install python-pip
+apt-get update -y
+apt-get install python-pip -y
 pip install git+https://github.com/shadowsocks/shadowsocks.git@master
 
 password=$1
